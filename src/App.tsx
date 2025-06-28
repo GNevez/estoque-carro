@@ -4,6 +4,8 @@ import { AuthScreen } from "./components/Auth/AuthScreen";
 import { Dashboard } from "./components/Dashboard/Dashboard";
 import { CarInventory } from "./components/Inventory/CarInventory";
 import { AddCarForm } from "./components/AddCar/AddCarForm";
+import { EditCarForm } from "./components/EditCar/EditCarForm";
+import { CarDetailView } from "./components/ViewCar/CarDetailView";
 import { Header } from "./components/Layout/Header";
 import { Sidebar } from "./components/Layout/Sidebar";
 import { LoadingScreen } from "./components/Layout/LoadingScreen";
@@ -108,42 +110,21 @@ function AppContent() {
 
       case "edit-car":
         return selectedCar ? (
-          <div className="p-6">
-            <div className="mb-6">
-              <button
-                onClick={handleBackToInventory}
-                className="text-blue-600 hover:text-blue-700 font-medium"
-              >
-                ← Voltar ao inventário
-              </button>
-            </div>
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <p className="text-yellow-800">
-                Funcionalidade de edição em desenvolvimento. Carro selecionado:{" "}
-                {selectedCar.marca} {selectedCar.modelo}
-              </p>
-            </div>
-          </div>
+          <EditCarForm
+            car={selectedCar}
+            onCarUpdated={handleBackToInventory}
+            onCancel={handleBackToInventory}
+          />
         ) : null;
 
       case "view-car":
         return selectedCar ? (
-          <div className="p-6">
-            <div className="mb-6">
-              <button
-                onClick={handleBackToInventory}
-                className="text-blue-600 hover:text-blue-700 font-medium"
-              >
-                ← Voltar ao inventário
-              </button>
-            </div>
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p className="text-blue-800">
-                Funcionalidade de visualização em desenvolvimento. Carro
-                selecionado: {selectedCar.marca} {selectedCar.modelo}
-              </p>
-            </div>
-          </div>
+          <CarDetailView
+            car={selectedCar}
+            onEdit={() => handleEditCar(selectedCar)}
+            onDelete={handleBackToInventory}
+            onBack={handleBackToInventory}
+          />
         ) : null;
 
       default:

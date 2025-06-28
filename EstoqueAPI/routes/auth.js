@@ -6,17 +6,6 @@ const AuthController = require("../controllers/AuthController");
 
 const router = express.Router();
 
-// Simulação de banco de dados em memória (em produção, use um banco real)
-let usuarios = [
-  {
-    id: 1,
-    nome: "Administrador",
-    email: "admin@estoque.com",
-    senha: "$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi", // password
-    role: "admin",
-  },
-];
-
 // Rota de cadastro
 router.post("/cadastro", AuthController.cadastrar);
 

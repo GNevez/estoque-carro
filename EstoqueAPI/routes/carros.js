@@ -40,56 +40,6 @@ const upload = multer({
   },
 });
 
-// Simulação de banco de dados em memória (em produção, use um banco real)
-let carros = [
-  {
-    id: 1,
-    marca: "Honda",
-    modelo: "Civic",
-    ano: 2022,
-    preco: 85000,
-    quilometragem: 15000,
-    combustivel: "flex",
-    transmissao: "automatico",
-    cor: "Branco",
-    descricao: "Civic em excelente estado, único dono, revisões em dia.",
-    caracteristicas: [
-      "Ar Condicionado",
-      "Direção Hidráulica",
-      "Vidros Elétricos",
-      "Airbag",
-      "ABS",
-    ],
-    imagens: [
-      "https://example.com/civic1.jpg",
-      "https://example.com/civic2.jpg",
-    ],
-    usuarioId: 1,
-    dataCadastro: new Date("2024-01-15"),
-  },
-  {
-    id: 2,
-    marca: "Toyota",
-    modelo: "Corolla",
-    ano: 2021,
-    preco: 78000,
-    quilometragem: 22000,
-    combustivel: "flex",
-    transmissao: "cvt",
-    cor: "Prata",
-    descricao: "Corolla com baixa quilometragem, muito bem conservado.",
-    caracteristicas: [
-      "Ar Condicionado",
-      "GPS",
-      "Câmera de Ré",
-      "Sensores de Estacionamento",
-    ],
-    imagens: ["https://example.com/corolla1.jpg"],
-    usuarioId: 1,
-    dataCadastro: new Date("2024-01-20"),
-  },
-];
-
 // Rota para adicionar carro (requer autenticação)
 router.post(
   "/",
